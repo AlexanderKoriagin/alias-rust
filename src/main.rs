@@ -1,8 +1,8 @@
+mod cards;
 mod dictionary;
-mod words_getter;
 
+use crate::cards::{get_random_words, WordsLanguage};
 use std::error::Error;
-use words_getter::{get_random_words, WordsLanguage};
 
 fn main() -> Result<(), Box<dyn Error>> {
     match get_random_words(WordsLanguage::EN, 8) {
