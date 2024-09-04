@@ -2,8 +2,8 @@ use super::*;
 use crate::dictionary;
 
 #[test]
-fn test_get_eight_random_english_words_success() {
-    match get_random_words(WordsLanguage::EN, 8) {
+fn test_get_card_english_success() {
+    match get_card(WordsLanguage::EN, 8) {
         Ok(words) => {
             assert_eq!(words.len(), 8);
 
@@ -16,8 +16,8 @@ fn test_get_eight_random_english_words_success() {
 }
 
 #[test]
-fn test_get_eight_random_russian_words_success() {
-    match get_random_words(WordsLanguage::RU, 8) {
+fn test_get_card_russian_success() {
+    match get_card(WordsLanguage::RU, 8) {
         Ok(words) => {
             assert_eq!(words.len(), 8);
 

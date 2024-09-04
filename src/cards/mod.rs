@@ -10,7 +10,7 @@ pub enum WordsLanguage {
     RU,
 }
 
-pub fn get_random_words(
+pub fn get_card(
     source: WordsLanguage,
     quantity: usize,
 ) -> Result<Vec<&'static str>, Box<dyn Error>> {
@@ -19,13 +19,10 @@ pub fn get_random_words(
         WordsLanguage::RU => ru::DICT,
     };
 
-    get_from_source(dict, quantity)
+    get_words(dict, quantity)
 }
 
-fn get_from_source<'a>(
-    source: &'a [&str],
-    quantity: usize,
-) -> Result<Vec<&'a str>, Box<dyn Error>> {
+fn get_words<'a>(source: &'a [&str], quantity: usize) -> Result<Vec<&'a str>, Box<dyn Error>> {
     let len = source.len();
     if quantity > len {
         return Err(Box::new(ErrorWordsQuantity {
