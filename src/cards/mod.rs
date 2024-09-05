@@ -23,17 +23,17 @@ pub fn get_card(
 }
 
 fn get_words<'a>(source: &'a [&str], quantity: usize) -> Result<Vec<&'a str>, Box<dyn Error>> {
-    let len = source.len();
-    if quantity > len {
+    let source_len = source.len();
+    if quantity > source_len {
         return Err(Box::new(ErrorWordsQuantity {
             requested: quantity,
-            available: len,
+            available: source_len,
         }));
     }
 
     let mut rng = thread_rng();
 
-    let indices: Vec<usize> = (0..len).collect();
+    let indices: Vec<usize> = (0..source_len).collect();
     let mut rng_indices = indices.clone();
     rng_indices.shuffle(&mut rng);
 
